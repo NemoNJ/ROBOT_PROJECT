@@ -94,40 +94,42 @@ void AskPlayerName()
 }
 void GameStart()
 {
-    printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-    printf("|                                                                                                                                                                       |\n");
-    printf("|                                                                                                                                                                       |\n");
-    printf("|                                                            ____________________________________________                                                               |\n");
-    printf("|                                                           [                                            ]                                                              |\n");
-    printf("|                            *******************************[      WELCOME TO BATTLE BOSS GAME 03        ]*********************************                             |\n");
-    printf("|                            *                              [____________________________________________]                                *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                          [1] PLAY GAME                                                     *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                          [2] HOW TO PLAY                                                   *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                          [E] EXIT                                                          *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                                                                                            *                             |\n");
-    printf("|                            *                                              ....                                                          *                             |\n");
-    printf("|                            *                                            .'    '.                                                        *                             |\n");
-    printf("|                            *                                           .   ......  ___       _                                          *                             |\n");
-    printf("|                            *                                           . .' I_I_;./___|_____/-|____                                     *                             |\n");
-    printf("|                            *                                         .'     |     ____.--;;;;;;;'                                       *                             |\n");
-    printf("|                            *                                        .  ...  |____/||  [ ]'''                                            *                             |\n");
-    printf("|                            *                                        :     ...   ...'   [_]                                              *                             |\n");
-    printf("|                            *                                       .    .     :                                                         *                             |\n");
-    printf("|                            *                                       . :  . :  : .                                                        *                             |\n");
-    printf("|                            *                                       : : .  :  : :                                                        *                             |\n");
-    printf("|                            *                                       :...........:                                                        *                             |\n");
-    printf("|                            *                                       :           :                                                        *                             |\n");
-    printf("|                            **************************************************************************************************************                             |\n");
-    printf("|                                                                                                                                                                       |\n");
-    printf("|                                                                                                                                                                       |\n");
-    printf("|                                                                                                                                                                       |\n");
-    printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+   HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+SetConsoleTextAttribute(color , 15);	
+printf("|");SetConsoleTextAttribute(color , 12);printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");SetConsoleTextAttribute(color , 15);printf("|\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                           ");SetConsoleTextAttribute(color , 9);printf(" ____________________________________________");SetConsoleTextAttribute(color , 15);printf("                                                               |\n");
+printf("|                                                           ");SetConsoleTextAttribute(color , 9);printf("[                                            ]");SetConsoleTextAttribute(color , 15);printf("                                                              |\n");
+printf("|                            ");SetConsoleTextAttribute(color , 3);printf("*******************************");SetConsoleTextAttribute(color , 9);printf("[      ");SetConsoleTextAttribute(color , 14);printf("WELCOME TO BATTLE BOSS GAME 03");SetConsoleTextAttribute(color , 9);printf("        ]");SetConsoleTextAttribute(color , 3);printf("*********************************");SetConsoleTextAttribute(color , 15);printf("                             |\n");
+printf("|                            *                              ");SetConsoleTextAttribute(color , 9);printf("[____________________________________________]");SetConsoleTextAttribute(color , 15);printf("                                *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                          ");SetConsoleTextAttribute(color , 14);printf("[1] PLAY GAME");SetConsoleTextAttribute(color , 15);printf("                                                     *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                          ");SetConsoleTextAttribute(color , 14);printf("[2] HOW TO PLAY");SetConsoleTextAttribute(color , 15);printf("                                                   *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                          ");SetConsoleTextAttribute(color , 14);printf("[E] EXIT");SetConsoleTextAttribute(color , 15);printf("                                                          *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                                                                                            *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf("       ....   ");SetConsoleTextAttribute(color , 15);printf("                                                       *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf("     .'    '.   ");SetConsoleTextAttribute(color , 15);printf("                                                     *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf("    .   ......  ___       _   ");SetConsoleTextAttribute(color , 15);printf("                                       *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf("    . .' I_I_;./___|_____/-|____    ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf("  .'     |     ____.--;;;;;;;'      ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(" .  ...  |____/||  [ ]'''           ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(" :     ...   ...'   [_]             ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(".    .     :                        ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(". :  . :  : .                       ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(": : .  :  : :                       ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(":...........:                       ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            *                                       ");SetConsoleTextAttribute(color , 2);printf(":           :                       ");SetConsoleTextAttribute(color , 15);printf("                                 *                             |\n");
+printf("|                            ");SetConsoleTextAttribute(color , 3);printf("**************************************************************************************************************");SetConsoleTextAttribute(color , 15);printf("                             |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|");SetConsoleTextAttribute(color , 12);printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");SetConsoleTextAttribute(color , 15);printf("|\n");
 }
 void GetEnter()
 {
