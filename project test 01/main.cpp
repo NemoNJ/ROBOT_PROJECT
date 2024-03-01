@@ -131,8 +131,8 @@ printf("|                                                                       
 printf("|");SetConsoleTextAttribute(color , 12);printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");SetConsoleTextAttribute(color , 15);printf("|\n");
 }
 
+//อธิบายการเล่นคร่าวๆ
 void tutorial(){
-
 
  HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
 SetConsoleTextAttribute(color , 9);	
