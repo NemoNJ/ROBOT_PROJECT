@@ -46,7 +46,6 @@ public:
     int super_atk;
     bool changeturn;
     int money;
-    int med;
     int grenade;
     int level;
     bool armor;
@@ -54,7 +53,8 @@ public:
     bool isAK;
     bool buyphase;
     bool isDead;
-    int medkit;
+    int medkit = 0;
+    bool isarmour  = false ; 
 };
 class Boss
 {
@@ -89,7 +89,7 @@ Player::Player(string name)
     armor = false;
     isPistol = false;
     isAK = false;
-    med = 0;
+    medkit = 0;
     grenade = 0;
     level = 1;
     changeturn = false;
@@ -304,7 +304,7 @@ void Player::showshop()
     printf("|             Pistol Press[1]                                           Armor1 Press[2]                                  Medkit  Press[3]                               |\n");
     printf("|             PRICE : 150  $                                            PRICE : 300  $                                   PRICE : 100  $                                 |\n");
     printf("|             ATK   : 15 - 35 damage                                    DEF   : +10 def                                  HEAL  :  25 - 40 hp                            |\n");
-    printf("|            Amount : %d                                                Amount : %d                                       Amount : %d                                     |\n", isPistol, armor, med);
+    printf("|            Amount : %d                                                Amount : %d                                       Amount : %d                                     |\n", isPistol, isarmour, medkit);
     printf("|                                                                                                                                                                       |\n");
     printf("|                                                                            __                                                                                         |\n");
     printf("|                                  __:                                     /=||=-o                                                                                      |\n");
@@ -345,14 +345,19 @@ void Player::buyPistol()
 
 void Player::buyArmour()
 {
+    if(!isarmour){
     if (money >= ArmourPrice)
     {
         money -= ArmourPrice;
+        def += 10;
+        isarmour = true ;
         cout << setw(62) << "Success Buy Armour" << endl;
     }
     else
     {
         cout << setw(62) << "You need more : " << ArmourPrice - money << " $\n";
+    }}else{
+        cout <<"You already have it" ;
     }
 }
 
@@ -361,7 +366,7 @@ void Player::buyMedkit()
     if (money >= MedkitPrice)
     {
         money -= MedkitPrice;
-        medkit++;
+        ++medkit ;
         cout << setw(62) << "Success Buy Medkit" << endl;
     }
     else
