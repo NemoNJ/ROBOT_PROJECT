@@ -205,7 +205,7 @@ printf("|                                           |         | ____ |     |____
 printf("|                                                                                                                                                                       \n");
 printf("|                                                                                                                                                                       \n");            
 printf("|                                  ***************************************************************************************                                              \n");
-printf("|                                   ");SetConsoleTextAttribute(color , 11);printf("           YOU GET MONEY : 600 $   Press [ Enter ] To Continue   ");SetConsoleTextAttribute(color , 2);printf("                                                             \n"),money;
+printf("|                                   ");SetConsoleTextAttribute(color , 11);printf("           YOU GET MONEY : 1200 $  Press [ Enter ] To Continue   ");SetConsoleTextAttribute(color , 2);printf("                                                             \n"),money;
 printf("|                                  ***************************************************************************************                                              \n");
 printf("|                                                                                                                                                                       \n");
 printf("|                                                                                                                                                                       \n");
