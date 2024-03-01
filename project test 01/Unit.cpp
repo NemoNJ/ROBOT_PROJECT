@@ -245,7 +245,7 @@ printf("|                                           |         | ____ |     |____
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                  ***************************************************************************************                                              |\n");
-printf("|                                  *");SetConsoleTextAttribute(color , 11);printf("                      Congratulations You defeat All Boss   ");SetConsoleTextAttribute(color , 2);printf("               *                                              |\n");
+printf("|                                  *");SetConsoleTextAttribute(color , 11);printf("                      Congratulations You defeat All Boss   ");SetConsoleTextAttribute(color , 2);printf("                         *                                              |\n");
 printf("|                                  ***************************************************************************************                                              |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");    
@@ -312,10 +312,9 @@ printf("|-----------------------------------------------------------------------
 
 void Player::showshop()
 {
-    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
-SetConsoleTextAttribute(color , 15);
+
     printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-    printf("|                                                                    ");SetConsoleTextAttribute(color , 14);printf("     [  SHOP  ]    ");SetConsoleTextAttribute(color , 15);printf("                                                                                |\n");
+    printf("|                                                                         [  SHOP  ]                                                                                    |\n");
     printf("|                                                                                                                                                                       |\n");
     printf("|                 _______________==                                      ___     ___                                      _______________                               |\n");
     printf("|                q|[[[[ [__]   ___|                                      [ ]_____[ ]]                                    /______________/|                              |\n");
@@ -325,10 +324,10 @@ SetConsoleTextAttribute(color , 15);
     printf("|                | ## |                                                 |[__][__][__]|                                   |     |_|     | |                              |\n");
     printf("|                |_##_|                                                 |   |   |   ||                                   |  first aid  | |                              |\n");
     printf("|                                                                       |___|___|___|/                                   |_____________|/                               |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   Pistol Press[1]                                           Armor1 Press[2]                                  Medkit  Press[3]   ");SetConsoleTextAttribute(color , 15);printf("                            |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   PRICE : 150  $                                            PRICE : 300  $                                   PRICE : 100  $     ");SetConsoleTextAttribute(color , 15);printf("                            |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   ATK   : 15 - 35 damage                                    DEF   : +10 def                                  HEAL  :  25 - 40 hp  ");SetConsoleTextAttribute(color , 15);printf("                          |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("  Amount : %d                                                Amount : %d                                       Amount : %d       ");SetConsoleTextAttribute(color , 15);printf("                               |\n", isPistol, armor, medkit);
+    printf("|             Pistol Press[1]                                           Armor1 Press[2]                                  Medkit  Press[3]                               |\n");
+    printf("|             PRICE : 150  $                                            PRICE : 300  $                                   PRICE : 100  $                                 |\n");
+    printf("|             ATK   : 15 - 35 damage                                    DEF   : +10 def                                  HEAL  :  25 - 40 hp                            |\n");
+    printf("|            Amount : %d                                                Amount : %d                                       Amount : %d                                     |\n", isPistol, isarmour, medkit);
     printf("|                                                                                                                                                                       |\n");
     printf("|                                                                            __                                                                                         |\n");
     printf("|                                  __:                                     /=||=-o                                                                                      |\n");
@@ -337,16 +336,17 @@ SetConsoleTextAttribute(color , 15);
     printf("|               |        __  |_]--|--|=======-----------|               | [______]                                                                                      |\n");
     printf("|               |      _/  |_|     |  |                                    [    ]                                                                                       |\n");
     printf("|               |_____/    ==       |__|                                    [__]                                                                                        |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   Rifile  Press[4]                                         Grenade  Press[5]                 ");SetConsoleTextAttribute(color , 15);printf("                                                               |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   PRICE : 1000  $                                          PRICE : 200  $ ( 1 used )         ");SetConsoleTextAttribute(color , 15);printf("                                                               |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   ATK   : 50 - 100 damage                                  ATK   : 120 damage                ");SetConsoleTextAttribute(color , 15);printf("                                                               |\n");
-    printf("|          ");SetConsoleTextAttribute(color , 9);printf("   Amount : %d                                               Amount : %d / 2                  ");SetConsoleTextAttribute(color , 15);printf("                                                                 |\n", isAK, grenade);
+    printf("|             Rifile  Press[4]                                         Grenade  Press[5]                                                                                |\n");
+    printf("|             PRICE : 1000  $                                          PRICE : 200  $ ( 1 used )                                                                        |\n");
+    printf("|             ATK   : 50 - 100 damage                                  ATK   : 120 damage                                                                               |\n");
+    printf("|             Amount : %d                                               Amount : %d / 2                                                                                  |\n", isAK, grenade);
     printf("|                                                                                                                                                                       |\n");
     printf("|                                                                                                                                                                       |\n");
-    printf("|     ");SetConsoleTextAttribute(color , 14);printf("YOUR MONEY : %d             PRESS [T] To continue ");SetConsoleTextAttribute(color , 15);printf("                                                                                                               |\n", money);
+    printf("|     YOUR MONEY : %d             PRESS [T] To continue                                                                                                                |\n", money);
     printf("|                                                                                                                                                                       |\n");
     printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 }
+
 
 
 void Player::buyPistol()
