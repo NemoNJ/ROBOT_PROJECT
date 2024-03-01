@@ -632,7 +632,7 @@ else if (levelStage == 3 && Player1.isAK)
 printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                           STAGE 3     |\n");
-printf("|                         %s                                                                             Toxic Timmy LV25                                               |\n",Heroname);
+cout  << "|                         "<<Hero <<"                                                                  Toxic Timmy LV 25                                              \n";
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
@@ -677,7 +677,7 @@ else if (levelStage == 4 && !Player1.isAK && Player1.isPistol)
 printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                           STAGE 4     |\n");
-printf("|                         %s                                                                            Just_a_teen LV50                                                |\n",Heroname);
+cout  << "|                         "<<Hero <<"                                                                  Just_a_teen LV50                                              \n";
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
@@ -715,7 +715,7 @@ else if (levelStage == 4 && Player1.isAK)
 printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                           STAGE 4     |\n");
-printf("|                         %s                                                                            Just_a_teen LV50                                                |\n",Heroname);
+cout  << "|                         "<<Hero <<"                                                                  Just_a_teen LV50                                              \n";
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
