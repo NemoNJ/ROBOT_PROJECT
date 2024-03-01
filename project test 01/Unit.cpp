@@ -357,7 +357,7 @@ void Player::buyArmour()
     {
         cout << setw(62) << "You need more : " << ArmourPrice - money << " $\n";
     }}else{
-        cout <<"You already have it" ;
+        cout <<"You already have it\n" ;
     }
 }
 
@@ -545,7 +545,7 @@ void Player::useGrenade(Boss &Boss)
     }
     else
     {
-        cout << "You Don't have Grenade";
+        cout << "You Don't have Grenade\n";
     }
 }
 
@@ -566,7 +566,7 @@ void Player::useMedkit()
     }
     else
     {
-        cout << "You Don't Have Medkits";
+        cout << "You Don't Have Medkits\n";
     }
 }
 
