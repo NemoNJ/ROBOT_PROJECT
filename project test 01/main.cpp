@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <fstream>
 #include "Unit.cpp"
+#include <windows.h>
 
 using namespace std;
 char *Heroname;
@@ -87,7 +88,7 @@ void AskPlayerName()
     cout << setw(62) << "Enter Your Name : ";
     getline(cin,Hero);
     const char* Heroname = Hero.c_str();
-    ::Heroname = Heroname;
+    
     name = Hero;
     system("cls");//clear terminal
 }
@@ -145,76 +146,80 @@ void ShowMap()
     if (levelStage == 1)
     {
         // map in game stage 1
-        printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                             [ MAP ]                                                                                   |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                 _____                                                                 |\n");
-        printf("|                                                                               _____________O   (     )  ( Stage 4 Final Boss)                                         |\n");
-        printf("|                                                                              /                ( () () )                                                               |\n");
-        printf("|                                                                             /                  (  ^  )                                                                |\n");
-        printf("|                                                                            /                    |||||                                                                 |\n");
-        printf("|                                                                           /                                                                                           |\n");
-        printf("|                                                                          /                                                                                            |\n");
-        printf("|                                                                         /                                                                                             |\n");
-        printf("|                                                                        /                                                                                              |\n");
-        printf("|                                                                       /                                                                                               |\n");
-        printf("|                                                        ______________O ( Stage 3 )                                                                                    |\n");
-        printf("|                                                       /                                                                                                               |\n");
-        printf("|                                                      /                                                                                                                |\n");
-        printf("|                                                     /                                                                                                                 |\n");
-        printf("|                                                    /                                                                                                                  |\n");
-        printf("|                                                   /                                                                                                                   |\n");
-        printf("|                                      ____________O ( Stage 2 )                                                                                                        |\n");
-        printf("|                                     /                                                                                                                                 |\n");
-        printf("|                                    /                                                                                                                                  |\n");
-        printf("|                                   /                                                                                                                                   |\n");
-        printf("|                                  /                                                                                                                                    |\n");
-        printf("|                                 O ( Stage 1 )                                                                                                                         |\n");
-        printf("|                          [ You Are Here ]                                                                                                                             |\n");
-        printf("|       PRESS [Enter] To continue                                                                                                                                           |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+       HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE); //Add Color
+SetConsoleTextAttribute(color , 15);	
+printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                             ");SetConsoleTextAttribute(color , 9);printf("[ MAP ]");SetConsoleTextAttribute(color , 15);printf("                                                                                   |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                 _____                                                                 |\n");
+printf("|                                                                               _____________O   (     )  ( Stage 4 Final Boss)                                         |\n");
+printf("|                                                                              /                ( () () )                                                               |\n");
+printf("|                                                                             /                  (  ^  )                                                                |\n");
+printf("|                                                                            /                    |||||                                                                 |\n");
+printf("|                                                                           /                                                                                           |\n");
+printf("|                                                                          /                                                                                            |\n");
+printf("|                                                                         /                                                                                             |\n");
+printf("|                                                                        /                                                                                              |\n");
+printf("|                                                                       /                                                                                               |\n");
+printf("|                                                        ______________O ( Stage 3 )                                                                                    |\n");
+printf("|                                                       /                                                                                                               |\n");
+printf("|                                                      /                                                                                                                |\n");
+printf("|                                                     /                                                                                                                 |\n");
+printf("|                                                    /                                                                                                                  |\n");
+printf("|                                                   /                                                                                                                   |\n");
+printf("|                                      ____________O ( Stage 2 )                                                                                                        |\n");
+printf("|                                     /                                                                                                                                 |\n");
+printf("|                                    /                                                                                                                                  |\n");
+printf("|                                   /                                                                                                                                   |\n");
+printf("|                                  /                                                                                                                                    |\n");
+printf("|                                 ");SetConsoleTextAttribute(color , 12);printf("O");SetConsoleTextAttribute(color , 14);printf(" ( Stage 1 ) ");SetConsoleTextAttribute(color , 15);printf("                                                                                                                        |\n");
+printf("|                         ");SetConsoleTextAttribute(color , 14);printf(" [ You Are Here ]  ");SetConsoleTextAttribute(color , 15);printf("                                                                                                                           |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     }
     if (levelStage == 2)
     {
         // map in game stage 2
-        printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                             [ MAP ]                                                                                   |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                 _____                                                                 |\n");
-        printf("|                                                                               _____________O   (     )  ( Stage 4 Final Boss)                                         |\n");
-        printf("|                                                                              /                ( () () )                                                               |\n");
-        printf("|                                                                             /                  (  ^  )                                                                |\n");
-        printf("|                                                                            /                    |||||                                                                 |\n");
-        printf("|                                                                           /                                                                                           |\n");
-        printf("|                                                                          /                                                                                            |\n");
-        printf("|                                                                         /                                                                                             |\n");
-        printf("|                                                                        /                                                                                              |\n");
-        printf("|                                                                       /                                                                                               |\n");
-        printf("|                                                        ______________O ( Stage 3 )                                                                                    |\n");
-        printf("|                                                       /                                                                                                               |\n");
-        printf("|                                                      /                                                                                                                |\n");
-        printf("|                                                     /                                                                                                                 |\n");
-        printf("|                                                    /                                                                                                                  |\n");
-        printf("|                                                   /                                                                                                                   |\n");
-        printf("|                                      ____________O ( Stage 2 )                                                                                                        |\n");
-        printf("|                                     /            [ You Are Here ]                                                                                                     |\n");
-        printf("|                                    /                                                                                                                                  |\n");
-        printf("|                                   /                                                                                                                                   |\n");
-        printf("|                                  /                                                                                                                                    |\n");
-        printf("|                                 O ( Stage 1 complete)                                                                                                                 |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|       PRESS [Enter] To continue                                                                                                                                           |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+       HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE); //Add Color
+SetConsoleTextAttribute(color , 15);	
+printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                             ");SetConsoleTextAttribute(color , 9);printf("[ MAP ]");SetConsoleTextAttribute(color , 15);printf("                                                                                   |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                 _____                                                                 |\n");
+printf("|                                                                               _____________O   (     )  ( Stage 4 Final Boss)                                         |\n");
+printf("|                                                                              /                ( () () )                                                               |\n");
+printf("|                                                                             /                  (  ^  )                                                                |\n");
+printf("|                                                                            /                    |||||                                                                 |\n");
+printf("|                                                                           /                                                                                           |\n");
+printf("|                                                                          /                                                                                            |\n");
+printf("|                                                                         /                                                                                             |\n");
+printf("|                                                                        /                                                                                              |\n");
+printf("|                                                                       /                                                                                               |\n");
+printf("|                                                        ______________O ( Stage 3 )                                                                                    |\n");
+printf("|                                                       /                                                                                                               |\n");
+printf("|                                                      /                                                                                                                |\n");
+printf("|                                                     /                                                                                                                 |\n");
+printf("|                                                    /                                                                                                                  |\n");
+printf("|                                                   /                                                                                                                   |\n");
+printf("|                                      ____________");SetConsoleTextAttribute(color , 12);printf("O ");SetConsoleTextAttribute(color , 14);printf("( Stage 2 )  ");SetConsoleTextAttribute(color , 15);printf("                                                                                                      |\n");
+printf("|                                     /            ");SetConsoleTextAttribute(color , 14);printf("[ You Are Here ] ");SetConsoleTextAttribute(color , 15);printf("                                                                                                    |\n");
+printf("|                                    /                                                                                                                                  |\n");
+printf("|                                   /                                                                                                                                   |\n");
+printf("|                                  /                                                                                                                                    |\n");
+printf("|                                 O ");SetConsoleTextAttribute(color , 14);printf("( Stage 1 complete) ");SetConsoleTextAttribute(color , 15);printf("                                                                                                                |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|                                                                                                                                                                       |\n");
+printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     }
     if (levelStage == 3)
     {
@@ -382,27 +387,27 @@ void ShowFightPhase(){
         if(Player1.hp < 0) Player1.hp = 0;
         if(Dummy1.hp < 0) Dummy1.hp = 0;
         printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                           STAGE 1     |\n");
-        cout  << "|                         "<<Hero <<"                                                                           The Stick Man LV 1                                              |\n";
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                        DAMAGE                                                                              DAMAGE                                                     |\n");
-        printf("|                                                                                                                                                                       |\n");
-        printf("|                        ------                                                                       ##                                                                |\n");
-        printf("|                       /      '               ATK: %d                                                 ##       ------        ATK: %d                                     |\n", Player1.atk, Dummy1.atk);
-        printf("|                      /--------|      /|      HP:  %d                                               ##     / -  - |          HP:  %d                                    |\n", Player1.hp, Dummy1.hp);
-        printf("|                      |/   I I |      ||      DEF: %d                                                 ##     | o  o |       DEF: %d                                      |\n", Player1.def, Dummy1.def);
-        printf("|                      ||    -  /      ||                                                             ##     |  -   |                                                   |\n");
-        printf("|                        '------'      +++                                                            ##     '-----'                                                    |\n");
-        printf("|                       /  ------------[]                                                             []----        |                                                   |\n");
-        printf("|                      /  |      |----/                                                               []------      |                                                   |\n");
-        printf("|                      |  |      |                                                                    ##    |       |                                                   |\n");
-        printf("|                      |==|      |                                                                          |       |                                                   |\n");
-        printf("|                      |==|      |                                                                          |       |                                                   |\n");
-        printf("|                      '=====[]=='                                                                          --------                                                    |\n");
-        printf("|                      |         |                                                                          |       |                                                   |\n");
+        printf("|                                                                                                                                                                       \n");
+        printf("|                                                                                                                                                           STAGE 1     \n");
+        cout  << "|                         "<<Hero <<"                                                                           The Stick Man LV 1                                              \n";
+        printf("|                                                                                                                                                                       \n");
+        printf("|                                                                                                                                                                       \n");
+        printf("|                                                                                                                                                                       \n");
+        printf("|                        DAMAGE                                                                              DAMAGE                                                     \n");
+        printf("|                                                                                                                                                                       \n");
+        printf("|                        ------                                                                       ##                                                                \n");
+        printf("|                       /      '               ATK: %d                                                 ##       ------        ATK: %d                                     \n", Player1.atk, Dummy1.atk);
+        printf("|                      /--------|      /|      HP:  %d                                               ##     / -  - |        HP:  %d                                    \n", Player1.hp, Dummy1.hp);
+        printf("|                      |/   I I |      ||      DEF: %d                                                 ##     | o  o |       DEF: %d                                      \n", Player1.def, Dummy1.def);
+        printf("|                      ||    -  /      ||                                                             ##     |  -   |                                                   \n");
+        printf("|                        '------'      +++                                                            ##     '-----'                                                    \n");
+        printf("|                       /  ------------[]                                                             []----        |                                                   \n");
+        printf("|                      /  |      |----/                                                               []------      |                                                   \n");
+        printf("|                      |  |      |                                                                    ##    |       |                                                   \n");
+        printf("|                      |==|      |                                                                          |       |                                                   \n");
+        printf("|                      |==|      |                                                                          |       |                                                   \n");
+        printf("|                      '=====[]=='                                                                          --------                                                    \n");
+        printf("|                      |         |                                                                          |       |                                                   \n");
         printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
         printf("|                                                                                                                                                                       |\n");
         printf("|    CHOOSE YOUR ACTION :                                                                                                                                               |\n");
