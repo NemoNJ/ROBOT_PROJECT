@@ -310,11 +310,8 @@ void buttonaction(string &action){
     else if(click == 'g'){ 
         action = 'G';
     }
-    else if(click == 't'){
-        action = 't';
-            }
-    else if(click == 'e') action = 'e';
-    else cout << "Invalid input\n";
+    else if(click == 'e') action = 'E';
+    else action = 't';
 }
 void FightBoss(Player &Player1, Boss &Boss)
 {
@@ -346,9 +343,7 @@ void FightBoss(Player &Player1, Boss &Boss)
         }
         else if (action == "E")
         {
-            // Avoid calling main() recursively
-            cout << "Exiting..." << endl;
-            break;
+            system("console.cpp");
         }
         else
         {
