@@ -286,7 +286,7 @@ printf("|                                  ");SetConsoleTextAttribute(color , 12
 printf("|                                  ");SetConsoleTextAttribute(color , 12);printf("           |         | ____ |     |_______|      |____|      |      |______     ");SetConsoleTextAttribute(color , 15);printf("                                                     |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                  ***************************************************************************************                                              |\n");
-printf("|                                  *    ");SetConsoleTextAttribute(color , 11);printf("                                                      ");SetConsoleTextAttribute(color , 15);printf("                           *                                              |\n");
+printf("|                                  *    ");SetConsoleTextAttribute(color , 11);printf("                 Enter To Go Back                     ");SetConsoleTextAttribute(color , 15);printf("                           *                                              |\n");
 printf("|                                  ***************************************************************************************                                              |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                ");SetConsoleTextAttribute(color , 12);printf("                                 ..*.*.*.*.*.*.*.*.*..      ");SetConsoleTextAttribute(color , 15);printf("                                                                           |\n");
@@ -327,7 +327,7 @@ void Player::showshop()
     printf("|             Pistol Press[1]                                           Armor1 Press[2]                                  Medkit  Press[3]                               |\n");
     printf("|             PRICE : 150  $                                            PRICE : 300  $                                   PRICE : 100  $                                 |\n");
     printf("|             ATK   : 15 - 35 damage                                    DEF   : +10 def                                  HEAL  :  25 - 40 hp                            |\n");
-    printf("|            Amount : %d                                                Amount : %d                                       Amount : %d                                     |\n", isPistol, isarmour, medkit);
+    printf("|            Amount : %d                                                Amount : %d                                       Amount : %d                                      |\n", isPistol, isarmour, medkit);
     printf("|                                                                                                                                                                       |\n");
     printf("|                                                                            __                                                                                         |\n");
     printf("|                                  __:                                     /=||=-o                                                                                      |\n");
@@ -339,7 +339,7 @@ void Player::showshop()
     printf("|             Rifile  Press[4]                                         Grenade  Press[5]                                                                                |\n");
     printf("|             PRICE : 1000  $                                          PRICE : 200  $ ( 1 used )                                                                        |\n");
     printf("|             ATK   : 50 - 100 damage                                  ATK   : 120 damage                                                                               |\n");
-    printf("|             Amount : %d                                               Amount : %d / 2                                                                                  |\n", isAK, grenade);
+    printf("|             Amount : %d                                               Amount : %d / 2                                                                                   |\n", isAK, grenade);
     printf("|                                                                                                                                                                       |\n");
     printf("|                                                                                                                                                                       |\n");
     printf("|     YOUR MONEY : %d             PRESS [T] To continue                                                                                                                |\n", money);
