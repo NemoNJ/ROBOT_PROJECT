@@ -24,7 +24,6 @@ void AskPlayerName();
 void ShowHowToplay();
 void ShowMap();
 string toUpperStr(string);
-void ShowShop(Player);
 void FightBoss(Player &, Boss &);
 void ShowFightPhase();
 Boss Dummy1("Dummy1", rand() % 5 + 100, rand() % 2 + 3, rand() % 2 + 1, 200);
@@ -391,7 +390,7 @@ void ShowFightPhase(){
         printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
         printf("|                                                                                                                                                                       \n");
         printf("|                                                                                                                                                           STAGE 1     \n");
-        cout  << "|                         "<<Hero <<"                                                                           The Stick Man LV 1                                              \n";
+        cout  << "|                         "<< Hero <<"                                                                           The Stick Man LV 1                                              \n";
         printf("|                                                                                                                                                                       \n");
         printf("|                                                                                                                                                                       \n");
         printf("|                                                                                                                                                                       \n");
