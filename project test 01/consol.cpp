@@ -5,7 +5,10 @@
 using namespace std;
 
 int main(){
+HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE); 
+SetConsoleTextAttribute(color , 12);	//Add Color
 printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+SetConsoleTextAttribute(color , 14);
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                  ____________________________________________________________________                                                 |\n");
 printf("|                                                 |                                                                    |                                                |\n");
@@ -18,15 +21,15 @@ printf("|                                           *    |   I         I  I     
 printf("|                                           *     |____________________________________________________________________|     *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
-printf("|                                           *                       Press[1] to enter Game BattleField 03                    *                                          |\n");
+printf("|                                           *                       ");SetConsoleTextAttribute(color , 9);printf("Press[1] to enter Game BattleField 03");SetConsoleTextAttribute(color , 14);printf("                    *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
-printf("|                                           *                          Press[2] to enter  3Card Game                         *                                          |\n");
+printf("|                                           *                          ");SetConsoleTextAttribute(color , 9);printf("Press[2] to enter  3Card Game");SetConsoleTextAttribute(color , 14);printf("                         *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
-printf("|                                           *                          Press[3] to enter Quiz Game                           *                                          |\n");
+printf("|                                           *                          ");SetConsoleTextAttribute(color , 9);printf("Press[3] to enter Quiz Game");SetConsoleTextAttribute(color , 14);printf("                           *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
 printf("|                                           *                                                                                *                                          |\n");
@@ -37,7 +40,9 @@ printf("|                                                                       
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
 printf("|                                                                                                                                                                       |\n");
+SetConsoleTextAttribute(color , 12);
 printf("|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+SetConsoleTextAttribute(color , 15);
   char click = getch();
   printf("%c\n",click);
   if(click == '1')
