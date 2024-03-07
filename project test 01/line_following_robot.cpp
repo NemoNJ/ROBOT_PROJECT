@@ -1,13 +1,14 @@
 // Define sensor pins
-const int leftSensor = 19;    // Connect left sensor 
-const int rightSensor = 18;   // Connect right sensor 
+const int leftSensor = 14;    // Connect left sensor 
+const int rightSensor = 27;   // Connect right sensor 
 
 // Define motor control pins
-const int leftMotor = 27;     // Connect left motor input 1 
-const int rightMotor = 25;    // Connect right motor input 1 
-int count = 1; //นับรอบ 
-bool use_motor = true;
+const int leftMotor = 13;     // Connect left motor input 1 
+const int rightMotor = 12;    // Connect right motor input 1 
+int turn = 1; //นับรอบ 
 bool timer = true;
+int leftSensorValue;
+int rightSensorValue;
 
 void setup() {
   // Initialize sensor and motor pins
@@ -16,68 +17,86 @@ void setup() {
   pinMode(leftMotor, OUTPUT);
   pinMode(rightMotor, OUTPUT);
 }
-
-void loop() {
-if(timer){
-  delay(1000);
-  timer = false;
-  }
-  // Read sensor values
-  int leftSensorValue = digitalRead(leftSensor);
-  int rightSensorValue = digitalRead(rightSensor);
-  // Line following logic
-else{
- if(use_motor){
-  if (leftSensorValue == 1 && rightSensorValue == 1) {
-    // Both sensors on the line - move forward
-    moveForward();
-  } else if (leftSensorValue == 1 && rightSensorValue == 0) {
-    // Left sensor off the line - turn right
-    turnRight();
-  } else if (leftSensorValue == 0 && rightSensorValue == 1) {
-    // Right sensor off the line - turn left
-    turnLeft();
-  } else if (leftSensorValue == 0 && rightSensorValue == 0) {
-    if (count == 1) {
-      moveForward();
-      count++;
-    } else if (count == 2) {
-      turnRight();
-      count++;
-    } else if (count == 3) {
-      turnRight();
-      count++;
-    } else {
-      use_motor = false;
-    }
-  }
- }
- else{
-   stop();
-  }
-}
-}
-
 // Function to move the robot forward
 void moveForward() {
-  digitalWrite(leftMotor, HIGH);
-  digitalWrite(rightMotor, HIGH);
+  analogWrite(leftMotor, 100);
+  delay(10);
+  analogWrite(rightMotor, 100);
+  delay(10);
 }
 
 // Function to turn the robot left
 void turnLeft() {
-  digitalWrite(leftMotor, LOW);
-  digitalWrite(rightMotor, HIGH);
+  analogWrite(leftMotor, 0);
+  delay(10);
+  analogWrite(rightMotor, 35);
+  delay(10);
+  analogWrite(leftMotor, 0);
+  delay(10);
+  analogWrite(rightMotor, 30);
+  delay(100);
+  analogWrite(leftMotor, 0);
+  delay(10);
+  analogWrite(rightMotor, 40);
+  delay(10);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  digitalWrite(leftMotor, HIGH);
-  digitalWrite(rightMotor, LOW);
+  analogWrite(leftMotor, 35);
+  delay(10);
+  analogWrite(rightMotor, 0);
+  delay(10);
+  analogWrite(leftMotor, 30);
+  delay(10);
+  analogWrite(rightMotor, 0);
+  delay(100);
+  analogWrite(leftMotor, 40);
+  delay(10);
+  analogWrite(rightMotor, 0);
+  delay(10);
 }
 
 // Function to stop the robot
-void stop() {
-  digitalWrite(leftMotor, LOW);
-  digitalWrite(rightMotor, LOW);
+void stopper() {
+   analogWrite(rightMotor,20);
+  delay(10);
+  analogWrite(leftMotor,20);
+  delay(10);
+  analogWrite(leftMotor, 0);
+  delay(10);
+  analogWrite(rightMotor, 0);
+  delay(10);
+}
+
+// Your count logic goes here
+void performturnLogic() {
+  // Implement your desired behavior based on the count variable
+  if (turn == 1) {
+    turnLeft();
+    turn += 1;
+  }else if (turn == 2) {
+    turnLeft();
+    turn += 1;
+  }else {
+    stopper();
+    }
+}
+void loop() {
+  leftSensorValue = digitalRead(leftSensor);
+  rightSensorValue = digitalRead(rightSensor);
+  
+    if (leftSensorValue == 0 && rightSensorValue == 0) {
+      // Both sensors on the line - move forward
+      moveForward();
+    } else if (leftSensorValue == 0 && rightSensorValue == 1) {
+      // Left sensor off the line - turn right
+      turnRight();
+    } else if (leftSensorValue == 1 && rightSensorValue == 0) {
+      // Right sensor off the line - turn left
+      turnLeft();
+    } else if (leftSensorValue == 1 && rightSensorValue == 1) {
+      // Both sensors off the line - implement your desired behavior here
+      performturnLogic();
+    }
 }
