@@ -1,12 +1,13 @@
 // Define sensor pins
-const int leftSensor = 19;    // Connect left sensor to Analog pin 6
-const int rightSensor = 18;   // Connect right sensor to Analog pin A8
+const int leftSensor = 19;    // Connect left sensor 
+const int rightSensor = 18;   // Connect right sensor 
 
 // Define motor control pins
-const int leftMotor = 27;     // Connect left motor input 1 to digital pin 16
-const int rightMotor = 12;    // Connect right motor input 1 to digital pin 13
+const int leftMotor = 27;     // Connect left motor input 1 
+const int rightMotor = 25;    // Connect right motor input 1 
 int count = 1; //นับรอบ 
 bool use_motor = true;
+bool timer = true;
 
 void setup() {
   // Initialize sensor and motor pins
@@ -17,13 +18,16 @@ void setup() {
 }
 
 void loop() {
-  delay(10500);
+if(timer){
+  delay(1000);
+  timer = false;
+  }
   // Read sensor values
   int leftSensorValue = digitalRead(leftSensor);
   int rightSensorValue = digitalRead(rightSensor);
-  moveForward();
   // Line following logic
-if(use_motor){
+else{
+ if(use_motor){
   if (leftSensorValue == 1 && rightSensorValue == 1) {
     // Both sensors on the line - move forward
     moveForward();
@@ -48,9 +52,10 @@ if(use_motor){
     }
   }
  }
-else{
+ else{
    stop();
   }
+}
 }
 
 // Function to move the robot forward
