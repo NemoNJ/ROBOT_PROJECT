@@ -1,8 +1,8 @@
 const int leftMotor = 13;   
 const int rightMotor = 12;   
-const int leftSensor = 1;
-const int rightSensor = 2;
-const int midSensor = 3;
+const int leftSensor = 14;
+const int rightSensor = 27;
+const int midSensor = 26;
 bool turn = true; 
 bool timer = true;
 int begintime = millis();
@@ -19,10 +19,16 @@ void setup() {
   pinMode(rightMotor, OUTPUT);
 }
 // Function to move the robot forward
-void moveForward() {
-  analogWrite(leftMotor,55);
+void moveFast() {
+  analogWrite(leftMotor,80);
   delay(1);
-  analogWrite(rightMotor,55);
+  analogWrite(rightMotor,80);
+  delay(1);
+}
+void moveForward() {
+  analogWrite(leftMotor,50);
+  delay(1);
+  analogWrite(rightMotor,50);
   delay(1);
 }
 
@@ -54,6 +60,9 @@ void loop() {
   if(timer){
      delay(15500); 
      timer = false;
+     //starter move 
+     moveFast();
+     delay(4000);
   } 
   leftSensorValue = digitalRead(leftSensor);
   rightSensorValue = digitalRead(rightSensor);
@@ -73,7 +82,6 @@ void loop() {
              delay(10);
              stopper();
          }
-        
     }else if (leftSensorValue == 1 && rightSensorValue == 0 && midSensorValue == 1 ) {
       // Left sensor off the line - turn right
       turnLeft();
