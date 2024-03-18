@@ -4,6 +4,7 @@ const int leftSensor = 14;
 const int rightSensor = 27;
 const int midSensor = 26;
 bool timer = true;
+bool turn = true;
 int begintime = millis();
 int timer2;
 int leftSensorValue;
@@ -61,14 +62,17 @@ void loop() {
      delay(15500); 
      timer = false;
      //starter move 
-     moveFast();
-     delay(4000);
   } 
   leftSensorValue = digitalRead(leftSensor);
   rightSensorValue = digitalRead(rightSensor);
   midSensorValue = digitalRead(midSensor);
   
     if (leftSensorValue == 0 && rightSensorValue == 0) {
+         if(turn){
+                moveFast();
+               delay(4000);
+               turn = false;
+          }
       // Both sensors on the line - move forward
       moveForward();
     } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1  ) {
