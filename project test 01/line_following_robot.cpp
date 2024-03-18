@@ -3,9 +3,9 @@ const int rightMotor = 12;
 const int leftSensor = 14;
 const int rightSensor = 27;
 const int midSensor = 26;
-bool turn = true; 
 bool timer = true;
 int begintime = millis();
+int timer2;
 int leftSensorValue;
 int rightSensorValue;
 int midSensorValue;
@@ -20,9 +20,9 @@ void setup() {
 }
 // Function to move the robot forward
 void moveFast() {
-  analogWrite(leftMotor,80);
+  analogWrite(leftMotor,90);
   delay(1);
-  analogWrite(rightMotor,80);
+  analogWrite(rightMotor,90);
   delay(1);
 }
 void moveForward() {
@@ -36,13 +36,13 @@ void moveForward() {
 void turnLeft() {
   analogWrite(leftMotor, 20);
   delay(1);
-  analogWrite(rightMotor,90);
+  analogWrite(rightMotor,100);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  analogWrite(leftMotor,90);
+  analogWrite(leftMotor,100);
   delay(1);
   analogWrite(rightMotor,20);
   delay(1);
@@ -71,18 +71,16 @@ void loop() {
     if (leftSensorValue == 0 && rightSensorValue == 0) {
       // Both sensors on the line - move forward
       moveForward();
-    } else if (leftSensorValue == 1 && rightSensorValue == 1 && midSensorValue == 1 ) {
-        if (turn) {
+    } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1  ) {
+       timer2 = millis()- begintime;
+        if (timer2 <  30000) {
+             moveForward();
+         }else if(timer2 <  35000){
              turnLeft();
-             turn = false;
          }else {
-             analogWrite(rightMotor,20);
-             delay(10);
-             analogWrite(leftMotor,20);
-             delay(10);
              stopper();
          }
-    }else if (leftSensorValue == 1 && rightSensorValue == 0 && midSensorValue == 1 ) {
+    }else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0 ) {
       // Left sensor off the line - turn right
       turnLeft();
     }else if (leftSensorValue == 0 && rightSensorValue == 1) {
