@@ -1,7 +1,9 @@
-// Define motor control pins
-const int leftMotor = 13;     // Connect left motor input 1 
-const int rightMotor = 12;    // Connect right motor input 1 
-bool turn = true; //นับรอบ 
+const int leftMotor = 13;   
+const int rightMotor = 12;   
+const int leftSensor = 1;
+const int rightSensor = 2;
+const int midSensor = 3;
+bool turn = true; 
 bool timer = true;
 int begintime = millis();
 int leftSensorValue;
@@ -18,55 +20,39 @@ void setup() {
 }
 // Function to move the robot forward
 void moveForward() {
-  analogWrite(leftMotor,70);
-  delay(3);
-  analogWrite(rightMotor,70);
-  delay(3);
+  analogWrite(leftMotor,55);
+  delay(1);
+  analogWrite(rightMotor,55);
+  delay(1);
 }
 
 // Function to turn the robot left
 void turnLeft() {
-  analogWrite(leftMotor, 15);
-  delay(3);
-  analogWrite(rightMotor,50);
-  delay(3);
-  analogWrite(leftMotor,10);
-  delay(3);
-  analogWrite(rightMotor,40);
-  delay(3);
-  analogWrite(leftMotor,15);
-  delay(3);
-  analogWrite(rightMotor,50);
-  delay(3);
+  analogWrite(leftMotor, 20);
+  delay(1);
+  analogWrite(rightMotor,90);
+  delay(1);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  analogWrite(leftMotor,50);
-  delay(3);
-  analogWrite(rightMotor,15);
-  delay(3);
-  analogWrite(leftMotor,40);
-  delay(3);
-  analogWrite(rightMotor,10);
-  delay(3);
-  analogWrite(leftMotor,50);
-  delay(3);
-  analogWrite(rightMotor,15);
-  delay(3);
+  analogWrite(leftMotor,90);
+  delay(1);
+  analogWrite(rightMotor,20);
+  delay(1);
 }
 
 // Function to stop the robot
 void stopper() {
   analogWrite(leftMotor, 0);
-  delay(5);
+  delay(1);
   analogWrite(rightMotor, 0);
-  delay(5);
+  delay(1);
 }
 
 void loop() {
   if(timer){
-     delay(2000); 
+     delay(15500); 
      timer = false;
   } 
   leftSensorValue = digitalRead(leftSensor);
