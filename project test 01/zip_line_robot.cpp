@@ -24,7 +24,7 @@ void setup() {
 void loop(){
   if(runner){
          runTheMotor1();
-       delay(13500);
+       delay(12500);
        stopTheMotor1();
        delay(1000);
        runTheMotor2();
