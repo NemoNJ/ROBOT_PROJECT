@@ -2,7 +2,7 @@
 #define motorPinB 12
 bool runner = true;
  void runTheMotor1() {
-  analogWrite(motorPinA,122);
+  analogWrite(motorPinA,115);
    }
  void stopTheMotor1() {
   analogWrite(motorPinA,0);
@@ -26,7 +26,7 @@ void loop(){
          runTheMotor1();
        delay(13500);
        stopTheMotor1();
-       delay(10);
+       delay(1000);
        runTheMotor2();
        delay(1000);
        stopTheMotor2();
