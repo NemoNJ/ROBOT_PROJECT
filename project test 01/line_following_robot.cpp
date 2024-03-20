@@ -16,43 +16,44 @@ void setup() {
   pinMode(midSensor, INPUT);
   pinMode(leftMotor, OUTPUT);
   pinMode(rightMotor, OUTPUT);
+  Serial.begin(9600);
 }
 // Function to move the robot forward
 void moveForward() {
-  analogWrite(leftMotor, 55);
+  analogWrite(leftMotor, 42);
   delay(1);
-  analogWrite(rightMotor, 55);
+  analogWrite(rightMotor, 45);
   delay(1);
 }
 
 // Function to turn the robot left
 void turnLeft() {
-  analogWrite(leftMotor, 8);
+  analogWrite(leftMotor, 3);
   delay(1);
-  analogWrite(rightMotor, 240);
+  analogWrite(rightMotor, 90);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  analogWrite(leftMotor, 240);
+  analogWrite(leftMotor, 85);
   delay(1);
-  analogWrite(rightMotor, 8);
+  analogWrite(rightMotor, 7);
   delay(1);
 }
 
 void turnLeftSlow() {
-  analogWrite(leftMotor, 30);
+  analogWrite(leftMotor, 35);
   delay(1);
-  analogWrite(rightMotor, 110);
+  analogWrite(rightMotor, 50);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRightSlow() {
-  analogWrite(leftMotor, 110);
+  analogWrite(leftMotor, 47);
   delay(1);
-  analogWrite(rightMotor, 30);
+  analogWrite(rightMotor, 31);
   delay(1);
 }
 // Function to stop the robot
@@ -64,23 +65,22 @@ void stopper() {
 }
 
 void loop() {
-  /*if(timer){
-     delay(15500); 
-     timer = false;
-     //starter move 
-  }*/ 
   leftSensorValue = digitalRead(leftSensor);
   rightSensorValue = digitalRead(rightSensor);
   midSensorValue = digitalRead(midSensor);
-  
+  Serial.println(timer);
+  if(timer){
+    delay(14000);
+    timer = false;
+  }
   if (leftSensorValue == 0 && rightSensorValue == 0) {
     // Both sensors on the line - move forward
     moveForward();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1) {
     timer2 = millis();
-    if (timer2 < 30000) {
+    if (timer2 < 40000) {
       moveForward();
-    } else if (timer2 < 35000 && timer2 > 30000) {
+    } else if (timer2 < 40000 && timer2 > 48000) {
       turnLeft();
     } else {
       stopper();
