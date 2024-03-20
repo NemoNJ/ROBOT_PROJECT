@@ -20,9 +20,9 @@ void setup() {
 }
 // Function to move the robot forward
 void moveForward() {
-  analogWrite(leftMotor, 42);
+  analogWrite(leftMotor, 39);
   delay(1);
-  analogWrite(rightMotor, 45);
+  analogWrite(rightMotor, 42);
   delay(1);
 }
 
