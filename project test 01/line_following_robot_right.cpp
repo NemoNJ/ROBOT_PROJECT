@@ -10,6 +10,7 @@ int timerside;
 int leftSensorValue;
 int rightSensorValue;
 int midSensorValue;
+int roboclock;
 
 void setup() {
   // Initialize sensor and motor pins
@@ -27,7 +28,12 @@ void moveForward() {
   analogWrite(rightMotor, 42);
   delay(1);
 }
-
+void moveFast() {
+  analogWrite(leftMotor, 80);
+  delay(1);
+  analogWrite(rightMotor, 2);
+  delay(1);
+}
 // Function to turn the robot left
 void turnLeft() {
   analogWrite(leftMotor, 2);
@@ -71,15 +77,9 @@ void stopper() {
   delay(1);
 }
 void turnCircle() {
-  analogWrite(leftMotor, 39);
+  analogWrite(leftMotor, 180);
   delay(1);
-  analogWrite(rightMotor, 180);
-  delay(1);
-}
-void turnCircle2() {
-  analogWrite(leftMotor, 39);
-  delay(1);
-  analogWrite(rightMotor, 180);
+  analogWrite(rightMotor, 39);
   delay(1);
 }
 
@@ -95,26 +95,32 @@ void loop() {
   if (leftSensorValue == 0 && rightSensorValue == 0) {
     // Both sensors on the line - move forward
     moveForward();
+    //cut safety system
+        if(roboclock >= 48500 && midSensorValue == 0){
+           stopper();
+         }
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1) {
     timer2 = millis();
-    if (timer2 < 43500) {
-      moveForward();
-    } else if (timer2 <= 43500 && timer2 > 54500) {
-      turnCircle();
-    }else {
+     if (timer2 < 43500) {
+      movefoward();
+     }else{
       stopper();
-    }
+      }
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0) {
     // Left sensor off the line - turn right
     turnLeft();
   } else if (leftSensorValue == 0 && midSensorValue == 1 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
     turnRightSlow();
-  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0) {
-    // Right sensor off the line - turn left
+  } else if (leftSensorValue == 0 && midSensorValue == 1 && rightSensorValue == 1) {
+    // Right sensor off the line - turn right
     timercircle = millis();
     turnLeftSlow();
-    if(timercircle >= 43500) turnCircle2();// turn left circle
+       if(timercircle >= 43500){
+          moveFast();
+          delay(10);
+          turnCircle();// turn right circle
+       }
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
        turnRight();
