@@ -97,11 +97,13 @@ void loop() {
     moveForward();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1) {
     timer2 = millis();
-    if (timer2 < 42500) {
+    if (timer2 < 43500) {
       moveForward();
-    } else if (timer2 <= 42500 && timer2 > 46500) {
+    } else if (timer2 <= 43500 && timer2 > 48500) {
       turnCircle();
-    } else {
+    }else if (timer2 <= 48500 && timer2 > 54500){
+      turnCircle2();
+    }else {
       stopper();
     }
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0) {
