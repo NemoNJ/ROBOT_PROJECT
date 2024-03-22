@@ -30,15 +30,15 @@ void moveForward() {
 
 // Function to turn the robot left
 void turnLeft() {
-  analogWrite(leftMotor, 3);
+  analogWrite(leftMotor, 2);
   delay(1);
-  analogWrite(rightMotor, 90);
+  analogWrite(rightMotor, 75);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  analogWrite(leftMotor, 110);
+  analogWrite(leftMotor, 83);
   delay(1);
   analogWrite(rightMotor, 2);
   delay(1);
@@ -97,9 +97,9 @@ void loop() {
     moveForward();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1) {
     timer2 = millis();
-    if (timer2 < 38000) {
+    if (timer2 < 42500) {
       moveForward();
-    } else if (timer2 <= 38000 && timer2 > 48000) {
+    } else if (timer2 <= 42500 && timer2 > 46500) {
       turnCircle();
     } else {
       stopper();
@@ -114,7 +114,7 @@ void loop() {
     // Right sensor off the line - turn left
     timercircle = millis();
     turnLeftSlow();
-    if(timercircle >= 40000) turnCircle2();// turn left circle
+    if(timercircle >= 44500) turnCircle2();// turn left circle
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
        turnRight();
