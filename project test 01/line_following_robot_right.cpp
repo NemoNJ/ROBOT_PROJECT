@@ -5,6 +5,8 @@ const int rightSensor = 27;
 const int midSensor = 26;
 bool timer = true;
 int timer2;
+int timercircle;
+int timerside;
 int leftSensorValue;
 int rightSensorValue;
 int midSensorValue;
@@ -38,10 +40,15 @@ void turnLeft() {
 void turnRight() {
   analogWrite(leftMotor, 85);
   delay(1);
-  analogWrite(rightMotor, 7);
+  analogWrite(rightMotor, 5);
   delay(1);
 }
-
+void turnRightSpeed() {
+  analogWrite(leftMotor, 190);
+  delay(1);
+  analogWrite(rightMotor, 5);
+  delay(1);
+}
 void turnLeftSlow() {
   analogWrite(leftMotor, 35);
   delay(1);
@@ -64,6 +71,12 @@ void stopper() {
   delay(1);
 }
 void turnCircle() {
+  analogWrite(leftMotor, 39);
+  delay(1);
+  analogWrite(rightMotor, 180);
+  delay(1);
+}
+void turnCircle2() {
   analogWrite(leftMotor, 39);
   delay(1);
   analogWrite(rightMotor, 180);
@@ -99,10 +112,14 @@ void loop() {
     turnRightSlow();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0) {
     // Right sensor off the line - turn left
+    timercircle = millis();
     turnLeftSlow();
+    if(timercircle >= 40000) turnCircle2();// turn left circle
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
-    turnRight();
+        timerside = millis();
+        if(timerside >= 26000 && timerside <= 29000) turnRightSpeed();
+        else turnRight();
   } else if (leftSensorValue == 1 && rightSensorValue == 0) {
     // Right sensor off the line - turn left
     turnLeft();
