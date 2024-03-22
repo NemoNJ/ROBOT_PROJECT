@@ -44,9 +44,9 @@ void turnRight() {
   delay(1);
 }
 void turnRightSpeed() {
-  analogWrite(leftMotor, 190);
+  analogWrite(leftMotor, 235);
   delay(1);
-  analogWrite(rightMotor, 5);
+  analogWrite(rightMotor, 4);
   delay(1);
 }
 void turnLeftSlow() {
@@ -97,9 +97,9 @@ void loop() {
     moveForward();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1) {
     timer2 = millis();
-    if (timer2 < 40000) {
+    if (timer2 < 38000) {
       moveForward();
-    } else if (timer2 < 40000 && timer2 > 48000) {
+    } else if (timer2 <= 38000 && timer2 > 48000) {
       turnCircle();
     } else {
       stopper();
@@ -118,7 +118,7 @@ void loop() {
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
         timerside = millis();
-        if(timerside >= 26000 && timerside <= 29000) turnRightSpeed();
+        if(timerside >= 25500 && timerside <= 31600) turnRightSpeed();
         else turnRight();
   } else if (leftSensorValue == 1 && rightSensorValue == 0) {
     // Right sensor off the line - turn left
