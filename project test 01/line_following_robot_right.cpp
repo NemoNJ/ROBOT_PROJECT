@@ -99,10 +99,8 @@ void loop() {
     timer2 = millis();
     if (timer2 < 43500) {
       moveForward();
-    } else if (timer2 <= 43500 && timer2 > 48500) {
+    } else if (timer2 <= 43500 && timer2 > 54500) {
       turnCircle();
-    }else if (timer2 <= 48500 && timer2 > 54500){
-      turnCircle2();
     }else {
       stopper();
     }
@@ -116,7 +114,7 @@ void loop() {
     // Right sensor off the line - turn left
     timercircle = millis();
     turnLeftSlow();
-    if(timercircle >= 44500) turnCircle2();// turn left circle
+    if(timercircle >= 43500) turnCircle2();// turn left circle
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
        turnRight();
