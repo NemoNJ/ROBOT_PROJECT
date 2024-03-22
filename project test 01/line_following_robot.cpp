@@ -63,6 +63,12 @@ void stopper() {
   analogWrite(rightMotor, 0);
   delay(1);
 }
+void turnCircle() {
+  analogWrite(leftMotor, 39);
+  delay(1);
+  analogWrite(rightMotor, 180);
+  delay(1);
+}
 
 void loop() {
   leftSensorValue = digitalRead(leftSensor);
@@ -81,7 +87,7 @@ void loop() {
     if (timer2 < 40000) {
       moveForward();
     } else if (timer2 < 40000 && timer2 > 48000) {
-      turnLeft();
+      turnCircle();
     } else {
       stopper();
     }
