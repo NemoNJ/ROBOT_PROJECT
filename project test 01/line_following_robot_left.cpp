@@ -1,13 +1,15 @@
+//perfect
 const int leftMotor = 13;   
 const int rightMotor = 12;   
 const int leftSensor = 14;
 const int rightSensor = 27;
 const int midSensor = 26;
 bool timer = true;
-int timer2;
+int timercircle;
 int leftSensorValue;
 int rightSensorValue;
 int midSensorValue;
+int roboclock;
 
 void setup() {
   // Initialize sensor and motor pins
@@ -25,23 +27,33 @@ void moveForward() {
   analogWrite(rightMotor, 42);
   delay(1);
 }
-
+void moveFast() {
+  analogWrite(leftMotor, 80);
+  delay(1);
+  analogWrite(rightMotor, 2);
+  delay(1);
+}
 // Function to turn the robot left
 void turnLeft() {
-  analogWrite(leftMotor, 3);
+  analogWrite(leftMotor, 2);
   delay(1);
-  analogWrite(rightMotor, 90);
+  analogWrite(rightMotor, 75);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  analogWrite(leftMotor, 85);
+  analogWrite(leftMotor, 83);
   delay(1);
-  analogWrite(rightMotor, 7);
+  analogWrite(rightMotor, 2);
   delay(1);
 }
-
+/*void turnRightSpeed() {
+  analogWrite(leftMotor, 220);
+  delay(1);
+  analogWrite(rightMotor, 4);
+  delay(1);
+}*/
 void turnLeftSlow() {
   analogWrite(leftMotor, 35);
   delay(1);
@@ -51,9 +63,9 @@ void turnLeftSlow() {
 
 // Function to turn the robot right
 void turnRightSlow() {
-  analogWrite(leftMotor, 47);
+  analogWrite(leftMotor, 44);
   delay(1);
-  analogWrite(rightMotor, 31);
+  analogWrite(rightMotor, 15);
   delay(1);
 }
 // Function to stop the robot
@@ -64,9 +76,9 @@ void stopper() {
   delay(1);
 }
 void turnCircle() {
-  analogWrite(leftMotor, 39);
+  analogWrite(leftMotor, 90);
   delay(1);
-  analogWrite(rightMotor, 180);
+  analogWrite(rightMotor, 2);
   delay(1);
 }
 
@@ -75,6 +87,7 @@ void loop() {
   rightSensorValue = digitalRead(rightSensor);
   midSensorValue = digitalRead(midSensor);
   Serial.println(timer);
+  timercircle = millis();
   if(timer){
     delay(14000);
     timer = false;
@@ -82,27 +95,28 @@ void loop() {
   if (leftSensorValue == 0 && rightSensorValue == 0) {
     // Both sensors on the line - move forward
     moveForward();
-  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1) {
-    timer2 = millis();
-    if (timer2 < 40000) {
-      moveForward();
-    } else if (timer2 < 40000 && timer2 > 48000) {
-      turnCircle();
-    } else {
-      stopper();
-    }
+    //cut safety system
+        if(timercircle >= 56000 && midSensorValue == 0){
+           stopper();
+         }
+  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 56000) {
+          stopper();
+  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 43000) {
+          turnCircle();
+  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 38000) {
+          moveForward();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0) {
     // Left sensor off the line - turn right
     turnLeft();
+  } else if (leftSensorValue == 0 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 42000 ) {
+    // Right sensor off the line - turn right
+    turnCircle();
   } else if (leftSensorValue == 0 && midSensorValue == 1 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
     turnRightSlow();
-  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 0) {
-    // Right sensor off the line - turn left
-    turnLeftSlow();
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
-    turnRight();
+       turnRight();
   } else if (leftSensorValue == 1 && rightSensorValue == 0) {
     // Right sensor off the line - turn left
     turnLeft();
