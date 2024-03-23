@@ -9,6 +9,9 @@ int leftSensorValue;
 int rightSensorValue;
 int midSensorValue;
 int roboclock;
+int leftSensorVal;
+int rightSensorVal;
+int  midSensorVal;
 
 void setup() {
   // Initialize sensor and motor pins
@@ -96,9 +99,24 @@ void turnCircle() {
 }
 
 void loop() {
-  leftSensorValue = digitalRead(leftSensor);
-  rightSensorValue = digitalRead(rightSensor);
-  midSensorValue = digitalRead(midSensor);
+  leftSensorVal = analogRead(leftSensor);
+  rightSensorVal = analogRead(rightSensor);
+  midSensorVal = analogRead(midSensor);
+  if(leftSensorVal >= 50 && leftSensorVal <= 500){
+    leftSensorValue = 0;
+  }else{
+    leftSensorValue = 1;
+  }
+  if(rightSensorVal >= 5 && rightSensorVal <= 300){
+    rightSensorValue = 0;
+  }else{
+    rightSensorValue = 1;
+  }
+   if(midSensorVal >= 180 && midSensorVal <= 500){
+      midSensorValue = 0;
+  }else{
+      midSensorValue = 1;
+  }
   Serial.println(timer);
   timercircle = millis();
   if(timer){
