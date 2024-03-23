@@ -101,10 +101,10 @@ void stopper() {
   delay(1);
 }
 void turnCircle() {
-  analogWrite(leftMotor, 215);
+  analogWrite(leftMotor, 220);
   delay(1);
   analogWrite(rightMotor, 3);
-  delay(10);
+  delay(250);
 }
 void turnRightcircle() {
   analogWrite(leftMotor, 180);
@@ -148,10 +148,10 @@ void loop() {
     // Both sensors on the line - move forward
     //cut safety system
             moveForward();
-        if(timercircle >= 56000 && midSensorValue == 0){
+        if(timercircle >= 52000 && midSensorValue == 0){
            stopper();
          }
-  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 56000) {
+  } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 52000) {
           stopper();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 38000) {
           stopper();
@@ -174,7 +174,7 @@ void loop() {
   } else if (leftSensorValue == 0 && midSensorValue == 1 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
      if(timercircle > 33000 && timercircle < 42000) turnRightSlowAfter();
-      if(timercircle > 43000 && timercircle < 54000 ){
+      if(timercircle > 43000 && timercircle < 52000 ){
         stopper();
         delay(500);
         turnRightcircle();
