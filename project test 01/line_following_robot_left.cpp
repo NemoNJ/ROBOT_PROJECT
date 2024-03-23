@@ -1,4 +1,3 @@
-//perfect
 const int leftMotor = 13;   
 const int rightMotor = 12;   
 const int leftSensor = 14;
@@ -37,13 +36,13 @@ void moveFast() {
 void turnLeft() {
   analogWrite(leftMotor, 2);
   delay(1);
-  analogWrite(rightMotor, 75);
+  analogWrite(rightMotor, 73);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRight() {
-  analogWrite(leftMotor, 83);
+  analogWrite(leftMotor, 81);
   delay(1);
   analogWrite(rightMotor, 2);
   delay(1);
@@ -57,13 +56,27 @@ void turnRight() {
 void turnLeftSlow() {
   analogWrite(leftMotor, 35);
   delay(1);
-  analogWrite(rightMotor, 50);
+  analogWrite(rightMotor, 60);
+  delay(1);
+}
+
+// Function to turn the robot right
+void turnRightcircle() {
+  analogWrite(leftMotor, 50);
+  delay(1);
+  analogWrite(rightMotor, 15);
+  delay(1);
+}
+void turnLeftcircle() {
+  analogWrite(leftMotor, 35);
+  delay(1);
+  analogWrite(rightMotor, 60);
   delay(1);
 }
 
 // Function to turn the robot right
 void turnRightSlow() {
-  analogWrite(leftMotor, 44);
+  analogWrite(leftMotor, 57);
   delay(1);
   analogWrite(rightMotor, 15);
   delay(1);
@@ -113,7 +126,8 @@ void loop() {
     turnCircle();
   } else if (leftSensorValue == 0 && midSensorValue == 1 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
-    turnRightSlow();
+      if(timercircle > 43000 && timercircle < 54000 )turnRightcircle();
+      else turnRightSlow();
   } else if (leftSensorValue == 0 && rightSensorValue == 1) {
     // Left sensor off the line - turn right
        turnRight();
