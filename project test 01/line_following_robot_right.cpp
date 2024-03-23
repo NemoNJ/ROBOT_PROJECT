@@ -156,6 +156,7 @@ void loop() {
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 38000) {
           stopper();
           delay(500);
+          
           turnCircle();
   } else if (leftSensorValue == 1 && midSensorValue == 1 && rightSensorValue == 1 && timercircle > 35000) {
           moveForward();
